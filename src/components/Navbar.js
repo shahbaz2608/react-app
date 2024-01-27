@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Outlet, Link } from "react-router-dom";
 
 export default function Navbar(data){
+
+    
     return(
       <nav className={`navbar navbar-expand-lg bg-${data.mode}`} >
         <div className="container-fluid" style={{color : data.mode === 'light'? 'black':'white'}}>
@@ -19,6 +21,10 @@ export default function Navbar(data){
                 <Link className="nav-link" to="/about" style={{color : data.mode === 'light'? 'black':'white'}}>{data.aboutText}</Link>
               </li>
             </ul>
+            <div className="mx-3">
+              {/* <span className="input-group-text" id="addon-wrapping">@</span> */}
+              <input type="color" onChange={data.getcolor} value={data.color}/>
+            </div>
             <div className="form-check form-switch">
               <input className="form-check-input" type="checkbox" onClick={data.toggle} role="switch" id="flexSwitchCheckDefault" />
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color : data.mode === 'light'? 'black':'white'}}>Enable {data.mode}mode</label>
